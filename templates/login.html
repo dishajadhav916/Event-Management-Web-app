@@ -1,0 +1,50 @@
+{% include "header.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+</head>
+<body style="  background: #90bc79; ">
+    <div class="wrapper" style="margin-top: 2px ;">
+        <div class="title-text">
+           <div class="title login">
+              Login Form
+           </div>
+           
+        </div>
+        <div class="form-container">
+           
+           <div class="form-inner">
+            
+            <form action="" method='POST'>
+                {% csrf_token %}
+                <center><div class="container">
+               
+                <div class="field">
+                
+                <input type="text" placeholder="Enter your username" name='uname'><br>
+                </div>
+                <div class="field">
+                
+                <input type="password" placeholder="Enter your password" name='pass'><br>
+                </div>
+                <div class="field btn">
+                    <div class="btn-layer">
+                    <input type="submit" value="Login" style="background: #90bc79;">
+                    </div>
+                </div>
+            <div class="signup-link">
+                Not a member? <a href="{% url 'register-page' %}">Register</a>
+             </div>
+                
+            </div></center>
+        </form>
+        </div>
+    </div>
+</body>
+</html>

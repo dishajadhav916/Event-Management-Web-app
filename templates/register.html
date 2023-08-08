@@ -1,0 +1,55 @@
+{% include "header.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+</head>
+<body style="background: #90bc79;">
+    <div class="wrapper">
+        <div class="title-text">
+           <div class="title signup">
+              Signup Form
+           </div>
+        </div>
+        <div class="form-container">
+           
+           <div class="form-inner">
+           
+            
+            <form action="" method='POST'>
+                {% csrf_token %}
+                <div class="field">
+                <input type="text" placeholder="Enter your first name" name='fname'><br>
+                </div> 
+                <div class="field">
+                <input type="text" placeholder="Enter your last name" name='sname'><br>
+                </div>
+                <div class="field">
+                <input type="text" placeholder="Create a username" name='uname'><br>
+                </div>
+                <div class="field">
+                <input type="email" placeholder="Enter your email" name='email'><br>
+                </div>
+                <div class="field">
+                <input type="password" placeholder="Create a password" name='pass'><br>
+                </div>
+                <div class="field btn">
+                    <div class="btn-layer">
+                    <input type="submit" value="Signup" style="background: #90bc79;">
+                    </div>
+                 </div>
+                 <div>
+                    <label>Already an accounct <a href="{% url 'login-page' %}"> Login </a></label>
+                  </div>
+             </div></center>
+         </form>
+        </div>  
+        </div>
+    </div>
+</body>
+</html>

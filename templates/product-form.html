@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="/static/product.css" rel="stylesheet" />
+     <title>Product details</title>\
+     {% load static %}
+   </head>
+<body style="background: #90bc79;">
+  <div class="container">
+    <div class="title">Product Order</div>
+    <div class="content">
+      <form action="#" method="POST">
+                  {% csrf_token %}
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Product_Id</span>
+            <input type="text" placeholder="Enter Product_Id" name='pro_id' required>
+          </div>
+          <div class="input-box">
+            <span class="details">Product_Name</span>
+            <input type="text" placeholder="Enter Product_Name" name='pro_name' required>
+          </div>
+          <div class="input-box">
+            <span class="details">Quantity</span>
+            <input type="text" placeholder="Enter Quantity" name='quan' required>
+          </div>
+          <div class="input-box">
+            <span class="details">Price</span>
+            <input type="text" placeholder="Enter Price" name='price' required>
+          </div>
+          <div class="button">
+          <input type="submit" value="Submit" style="background:#90bc79;">
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+{% include 'header.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">   
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  
+	<style media="screen">
+	  a:link {
+		text-decoration: none;
+	  }
+	  .panel-title{
+		text-align:center;
+	  }
+	  
+  
+	  .row {
+		margin: 100px;
+	  }
+	  
+	  .float{
+	  position:fixed;
+	  width:70px;
+	  height:70px;
+	  bottom:60px;
+	  right:60px;
+	  background-color:#3eb54d;
+	  color:#FFF;
+	  border-radius:50px;
+	  text-align:center;
+	  box-shadow: 5px 5px 5px #505050;
+  }
+  
+  .head1{
+	color:black;
+  }
+  
+  .my-float{
+	  margin-top:22px;
+  }
+  .panel-heading {
+    padding: 10px;
+    background-color: #f1cf7c;
+	background: white; 
+}
+span.bi.bi-trash.teal-color {
+    font-size: 22px;
+}
+span.bi.bi-pen.teal-color {
+    font-size: 22px;
+	color:while;
+}
+.btn-primary {
+    background-color: #e7ce93;
+}
+a#addbutton {
+    float: right;
+    margin-right: 9%;
+    padding: 7px 28px;
+    border-radius: 10px;
+}
+.py-4 {
+    padding-top: 1px!important;
+    padding-bottom: 1px!important;
+}
+.py-5 {
+    padding-top: 1px!important;
+    padding-bottom: 1px!important;
+}
+
+	</style>
+  </head>
+  
+  <body style=" background: #90bc79; ">
+  <br><br><br>
+  <div class="col-sm-12">
+	<a href="/add-product"  id="addbutton" style="background:#1c2900; color:white;" ><span>Add Product</span></a>
+  </div>
+  <br><br>
+  
+	<div class="container" style="background: #a6d98b">
+	<div class="panel panel-danger">
+	  <div class="panel-heading">
+		<h6 class="panel-title">Products</h6>
+	  </div>
+	  <table class="table table-hover table-bordered" id="dev-table">
+		<thead>
+		  <tr class="head1">
+			<th>Name</th>
+			<th>Image</th>
+			<th>Price</th>
+			<th>Actions</th>
+		  </tr>
+		</thead>
+		{% for i in products %}
+		<tr class="head1">
+		  <td> {{i.pro_name}}</td>
+		  <td> <img src="/media/{{i.pro_img}}" alt="Profile Pic" height="40px" width="40px" /></td>
+		  <td>{{i.price}}</td>
+		  <td><a class="btn btn-success" href="{% url 'update-product' i.id %}">Edit</a>
+			<form action="{% url 'delete-product' i.id %}" method="post" class="d-inline">
+				{% csrf_token %}
+				<input type="submit" class="btn btn-danger" value="Delete">
+		   </td>
+		</tr>
+		
+		{% endfor %}
+	  </table>
+	</div>
+  </div>
+  <br><br><br>
+</body>
+ 
+  {% endblock content %}
